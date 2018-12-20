@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="scss,快速编写css,">
 
 
 
@@ -92,6 +92,7 @@
 
 
 <meta name="description" content="sasssass有两种语法，一种是缩进式最开始的后缀名为.sass; 在sass3.0以后介绍了一种新的语法Sassy Css 是现在比较常用的后缀为.scss">
+<meta name="keywords" content="scss,快速编写css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sass教程">
 <meta property="og:url" content="http://www.wangtianliang.cn/2018/12/19/sass教程/index.html">
@@ -99,7 +100,7 @@
 <meta property="og:description" content="sasssass有两种语法，一种是缩进式最开始的后缀名为.sass; 在sass3.0以后介绍了一种新的语法Sassy Css 是现在比较常用的后缀为.scss">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4291575-ce2de0b923ff45db.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/190/format/webp">
-<meta property="og:updated_time" content="2018-12-19T03:19:18.589Z">
+<meta property="og:updated_time" content="2018-12-20T13:24:10.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sass教程">
 <meta name="twitter:description" content="sasssass有两种语法，一种是缩进式最开始的后缀名为.sass; 在sass3.0以后介绍了一种新的语法Sassy Css 是现在比较常用的后缀为.scss">
@@ -316,6 +317,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端技能/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -355,7 +378,8 @@
       
 
       
-        <h1 id="sass"><a href="#sass" class="headerlink" title="sass"></a>sass</h1><p>sass有两种语法，一种是缩进式最开始的后缀名为.sass;</p>
+        <hr>
+<h1 id="sass"><a href="#sass" class="headerlink" title="sass"></a>sass</h1><p>sass有两种语法，一种是缩进式最开始的后缀名为.sass;</p>
 <p>在sass3.0以后介绍了一种新的语法Sassy Css 是现在比较常用的后缀为.scss</p>
 <a id="more"></a>
 <h2 id="安装sass"><a href="#安装sass" class="headerlink" title="安装sass"></a>安装sass</h2><p>因为sass是基于ruby环境的，所以安装sass要先安装ruby</p>
@@ -372,7 +396,10 @@
 <li>expanded    扩展</li>
 <li>compressed    压缩    </li>
 </ul>
-<h1 id="scss语法"><a href="#scss语法" class="headerlink" title="scss语法"></a>scss语法</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
+<h1 id="scss语法"><a href="#scss语法" class="headerlink" title="scss语法"></a>scss语法</h1><blockquote>
+<p>所有的代码上半部分都是sass，下半部分是对应解析成css的格式</p>
+</blockquote>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
 <p>$符号设置变量，变量名中间可以有下划线也可以有 - 连字符，变量可以套用变量</p>
 </blockquote>
 <h2 id="属性嵌套"><a href="#属性嵌套" class="headerlink" title="属性嵌套"></a>属性嵌套</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">---------sass----------</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: &#123;</span><br><span class="line">    size: <span class="number">12px</span>;</span><br><span class="line">    family: <span class="string">"Arial Black"</span>;</span><br><span class="line">    weight: <span class="number">400</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>&#123;</span><br><span class="line">    left: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">---------css----------</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">"Arial Black"</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -436,6 +463,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scss/" rel="tag"># scss</a>
+          
+            <a href="/tags/快速编写css/" rel="tag"># 快速编写css</a>
+          
+        </div>
       
 
       
@@ -544,7 +579,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -555,7 +590,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
