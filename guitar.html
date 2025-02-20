@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>吉他音名记忆游戏</title>
+        <style>
+            /* style.css */
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .container {
+                width: 300px;
+                margin: auto;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            button {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>吉他音名记忆游戏</h1>
+            <p>C调空弦音名6-1[E,A,D,G,B,E]</p>
+            <div id="question">
+                <p>弦位: <span id="string"></span></p>
+                <p>品位: <span id="fret"></span></p>
+            </div>
+            <button id="showAnswer">显示答案</button>
+            <p id="answer" style="display: none"></p>
+            <button id="next">下一个</button>
+        </div>
+        <script>
+            // script.js
+            const notes = {
+                1: ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E'],
+                2: ['B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+                3: ['G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G'],
+                4: ['D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D'],
+                5: ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A'],
+                6: ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E'],
+            };
+
+            function getRandomFret() {
+                return Math.floor(Math.random() * 13);
+            }
+
+            function getRandomString() {
+                return Math.floor(Math.random() * 6) + 1;
+            }
+
+            function displayQuestion() {
+                const string = getRandomString();
+                const fret = getRandomFret();
+                document.getElementById('string').textContent = string;
+                document.getElementById('fret').textContent = fret;
+                document.getElementById('answer').style.display = 'none';
+                document.getElementById('answer').textContent = '音名: ' + notes[string][fret];
+            }
+
+            document.getElementById('showAnswer').addEventListener('click', function () {
+                document.getElementById('answer').style.display = 'block';
+            });
+
+            document.getElementById('next').addEventListener('click', function () {
+                displayQuestion();
+            });
+
+            // 初始化第一个问题
+            displayQuestion();
+        </script>
+    </body>
+</html>
