@@ -5,20 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>吉他音名记忆游戏</title>
         <style>
-            /* style.css */
             body {
                 font-family: Arial, sans-serif;
                 text-align: center;
                 margin-top: 50px;
             }
-
             .container {
                 width: 300px;
                 margin: auto;
                 padding: 20px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
-
             button {
                 margin: 10px;
                 padding: 10px 20px;
@@ -39,7 +36,6 @@
             <button id="next">下一个</button>
         </div>
         <script>
-            // script.js
             const notes = {
                 1: ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E'],
                 2: ['B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
@@ -49,8 +45,16 @@
                 6: ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E'],
             };
 
-            function getRandomFret() {
-                return Math.floor(Math.random() * 13);
+            // 筛选出不包含升号(#)的品位
+            function isValidFret(note) {
+                return !note.includes('#');
+            }
+
+            function getRandomFret(string) {
+                let validFrets = notes[string]
+                    .map((note, index) => (isValidFret(note) ? index : -1))
+                    .filter(index => index !== -1);
+                return validFrets[Math.floor(Math.random() * validFrets.length)];
             }
 
             function getRandomString() {
@@ -59,7 +63,7 @@
 
             function displayQuestion() {
                 const string = getRandomString();
-                const fret = getRandomFret();
+                const fret = getRandomFret(string);
                 document.getElementById('string').textContent = string;
                 document.getElementById('fret').textContent = fret;
                 document.getElementById('answer').style.display = 'none';
